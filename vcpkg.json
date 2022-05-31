@@ -1,0 +1,19 @@
+{
+  "name": "demotest",
+  "version": "0.1.0",
+  "description": "A simple caculation package for demonstrating the use of the vcpkg dependency manager.",
+  "dependencies":[
+    {
+      "name": "gtest",
+      "version>=": "1.11.0"
+    },
+    "spdlog"
+  ],
+  "builtin-baseline": "99346bb6926e85d93e4aad330bf28cce4a18051b",
+  "overrides": [
+    {
+      "name": "spdlog",
+      "version": "1.9.2"
+    }
+  ]
+}
