@@ -1,0 +1,10 @@
+@PACKAGE_INIT@
+
+include(CMakeFindDependencyMacro)
+find_dependency(spdlog)
+
+include(${CMAKE_CURRENT_LIST_DIR}/@pkg_config_targets_file@)
+
+set_and_check(maths_INCLUDE_DIR "@PACKAGE_CMAKE_INSTALL_INCLUDEDIR@")
+set(maths_LIBRARIES maths::maths_library)
+check_required_components(maths)
