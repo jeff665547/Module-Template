@@ -1,6 +1,13 @@
 cmake_minimum_required(VERSION 3.15)
 
-find_package(spdlog REQUIRED)
+include(FetchContent)
+FetchContent_Declare(
+    spdlog 
+    GIT_REPOSITORY https://github.com/gabime/spdlog.git # The link of the repository.
+    GIT_TAG v1.9.2
+)
+set(SPDLOG_INSTALL OFF)
+FetchContent_MakeAvailable(spdlog)
 
 add_library(status INTERFACE)
 target_link_libraries(status INTERFACE spdlog::spdlog)

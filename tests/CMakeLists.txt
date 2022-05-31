@@ -1,6 +1,16 @@
 cmake_minimum_required(VERSION 3.15)
+include(FetchContent)
 
-find_package(GTest REQUIRED)
+FetchContent_Declare(
+    googletest
+    GIT_REPOSITORY https://github.com/google/googletest.git
+    GIT_TAG release-1.10.0
+)
+
+set(INSTALL_GTEST OFF)  # Disable gtest calling install for its own targets.
+FetchContent_MakeAvailable(googletest)
+
+set(FETCHCONTENT_UPDATES_DISCONNECTED ON CACHE BOOL "")
 
 add_executable(testMaths basic_math.cpp)
 
@@ -9,11 +19,11 @@ target_link_libraries(
     PRIVATE
         maths_library
         ProjectConfiguration
-        GTest::gtest
-        GTest::gtest_main
+        gtest
+        gtest_main
 )
 
-set(deps maths_library add_library subtract_library)
+set(deps gtest gtest_main maths_library add_library subtract_library spdlog)
 
 if(BUILD_SHARED_LIBS)
     foreach(elem ${deps})

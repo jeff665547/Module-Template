@@ -1,6 +1,7 @@
 cmake_minimum_required(VERSION 3.15)
 set(CMAKE_CXX_STANDARD 11)
 project(maths VERSION 0.1.0)
+set(CMAKE_POLICY_DEFAULT_CMP0077 NEW)
 
 option(BUILD_EXAMPLE "Build the example target." ON)
 option(PKG_INSTALL "Install (distribute) this package" OFF)
@@ -110,7 +111,7 @@ if(BUILD_EXAMPLE)
             status
     )
     if(BUILD_SHARED_LIBS)
-        set(deps maths_library add_library subtract_library)
+        set(deps maths_library add_library subtract_library spdlog)
         foreach(elem ${deps})
             add_custom_command(
                 TARGET development_and_deploy_main 
