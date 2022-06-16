@@ -6,7 +6,7 @@ libdir=${exec_prefix}/@CMAKE_INSTALL_LIBDIR@
 Name: lib@PROJECT_NAME@
 Description: A CMake library template.
 URL: http://gitlab.centrilliontech.com.tw:10088/centrillion/@PROJECT_NAME@
-Version: @MATHS_VERSION@
+Version: @PROJECT_VERSION@
 CFlags: -I${includedir} @PKG_CONFIG_DEFINES@
-Libs: -L${libdir} -lmaths
+Libs: -L${libdir} -l@PROJECT_NAME@
 Requires: @PKG_CONFIG_REQUIRES@
